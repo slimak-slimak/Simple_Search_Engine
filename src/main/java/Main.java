@@ -1,22 +1,41 @@
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Main {
-
+class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String inputData = sc.nextLine();
-        String keyWord = sc.nextLine();
-        String [] inputDataArray = inputData.split(" ");
+        System.out.println("Enter the number of people:");
+        int numberOfLines = sc.nextInt();
+        System.out.println("Enter all people:");
+        sc.nextLine();
+        String[] people = new String[numberOfLines];
+        for (int i = 0; i < people.length; i++) {
+            people[i] = sc.nextLine();
+        }
+        System.out.println("Enter the number of search queries:");
+        int numberOfSearchQueries = sc.nextInt();
 
-        if (inputData.contains(keyWord)){
-            int indexOdFirstOccurance = Arrays.asList(inputDataArray).indexOf(keyWord) +1;
-            System.out.println(indexOdFirstOccurance);
+
+        for (int j = 0; j <numberOfSearchQueries ; j++) {
+            System.out.println("Enter data to search people:");
+            String keyWorld = sc.next();
+            List<Integer> indexes = new ArrayList<>();
+            for (int k = 0; k < people.length ; k++) {
+                if (people[k].toLowerCase().contains(keyWorld.toLowerCase())){
+                    indexes.add(k);
+                }
+            }
+
+            if (!indexes.isEmpty()){
+                System.out.println("Found people:");
+                for (int x: indexes) {
+                    System.out.println(people[x]);
+                }
+            }
+            else {
+                System.out.println("No matching people found.");
+            }
         }
-        else if(!inputData.contains(keyWord)){
-            System.out.println("Not Found");
-        }
-        else System.out.println("Error");
     }
-
 }
