@@ -1,15 +1,16 @@
-import java.util.List;
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.*;
 
- public class Main {
+public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
         AplicationArguments aplicationArguments = new AplicationArguments(args);
         TextFileReader textFileReader = new TextFileReader(aplicationArguments.fileName);
         run(textFileReader.getData());
     }
 
-    private static void run(List<String>listOfPeople){
+    private static void run(List<String> listOfPeople) {
 
         System.out.println("=== Menu ===");
         System.out.println("1. Find a person");
@@ -21,9 +22,10 @@ import java.util.Scanner;
         SearchMechanism searchMechanism = new SearchMechanism();
         PrintingMechanism printingMechanism = new PrintingMechanism();
 
-        switch (command){
+
+        switch (command) {
             case "1":
-                searchMechanism.search(listOfPeople);
+                searchMechanism.search(printingMechanism.invertedIndex(listOfPeople), listOfPeople);
                 run(listOfPeople);
                 break;
             case "2":

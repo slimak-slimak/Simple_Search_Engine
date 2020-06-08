@@ -1,11 +1,6 @@
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class TextFileReader {
 
@@ -15,10 +10,11 @@ public class TextFileReader {
         this.inputPath = inputPath;
     }
 
-    List<String> getData() {
+    List<String> getData() throws IOException {
         List<String> inputData = new ArrayList<>();
+        File file = new File(inputPath);
         try {
-            Scanner sc = new Scanner(new File(inputPath));
+            Scanner sc = new Scanner(file);
             while (sc.hasNextLine()) {
                 inputData.add(sc.nextLine());
             }
@@ -26,8 +22,14 @@ public class TextFileReader {
             return inputData;
 
         } catch (IOException e) {
+
             System.out.println("Reading file error");
+        } finally {
+            //Files.delete(Path.of(inputPath));
         }
         return inputData;
     }
+
+
 }
+

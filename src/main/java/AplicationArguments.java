@@ -1,11 +1,10 @@
 public class AplicationArguments {
     String fileName;
 
-    AplicationArguments (String[] args){
-        if (args!=null){
+    AplicationArguments(String[] args) {
+        if (args != null) {
             fileName = args[1];
-        }
-        else {
+        } else {
             System.out.println("Arguments loading error");
         }
     }
