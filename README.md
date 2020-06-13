@@ -34,8 +34,11 @@ In this case we have a list of people, but the program can be easly adapted for 
 The program prints simple menu:
 
 `=== Menu ===`
+
 `1. Find a person`
+
 `2. Print all people`
+
 `0. Exit`
 
 To use the program type 1, 2 or 3 then follow the instructions printed. The program will come back to menu after each operation. To terminate the program, please type 0.
