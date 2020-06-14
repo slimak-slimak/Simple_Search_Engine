@@ -49,5 +49,6 @@ Remember that you must **create -- data file !**
 
 # Plans for future improvement
 - implementation of stage 6 (Design Pattern)
+- Unit Tests
 - code refactoring
 - documentation
